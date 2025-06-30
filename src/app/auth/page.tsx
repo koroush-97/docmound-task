@@ -27,7 +27,16 @@ export default function page() {
         className="bg-white p-6 rounded shadow-md w-80 space-y-4"
       >
         <h1 className="text-xl font-semibold text-center">ورود</h1>
-        <Input />
+        <Input
+          register={register("phone", {
+            required: "شماره موبایل الزامیست",
+            pattern: {
+              value: /^09\d{9}$/,
+              message: "شماره موبایل معتبر نیست",
+            },
+          })}
+          errors={errors}
+        />
         <Button />
       </form>
     </div>
