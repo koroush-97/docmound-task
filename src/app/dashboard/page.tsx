@@ -1,10 +1,8 @@
 "use client";
 
-// hooks
+import styles from "./dashboard.module.scss";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-
-import React, { useEffect } from "react";
-import { toast } from "react-toastify";
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -13,10 +11,38 @@ export default function DashboardPage() {
     const storedUser = localStorage.getItem("randomUser");
     if (!storedUser) {
       router.replace("/auth");
-    } else {
-      toast.success("خوش آمدید!");
     }
   }, [router]);
 
-  return <div>dashboard page</div>;
+  const user =
+    typeof window !== "undefined" && localStorage.getItem("randomUser");
+  const parsedUser = user ? JSON.parse(user) : null;
+
+  console.log(parsedUser);
+
+  return (
+    <div className={`${styles.dashboardContainer}  flex flex-row`}>
+      <div className="content w-3/4 h-full  flex flex-col">
+        <div className="border-2 h-1/3 flex justify-center items-center">
+          <h1 className="text-4xl direction-rtl">
+            {" "}
+            خوش آمدید <span>{parsedUser.name.first}</span> به پنل کاربری
+          </h1>
+        </div>
+        <div className="border-2 h-2/3 flex justify-center items-center">
+          داشبورد
+        </div>
+      </div>
+      <div className="sidebar w-1/4 h-full">
+        <div className={`${styles.imgSidebar}`}>
+          <img src={parsedUser.picture.medium} alt="avatar" />
+        </div>
+
+        <ul className={`${styles.parentList}`}>
+          <li> نام : {parsedUser.name.first} </li>
+          <li>نام خانوادگی: {parsedUser.name.last} </li>
+        </ul>
+      </div>
+    </div>
+  );
 }

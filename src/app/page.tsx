@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <div className="w-full h-[100vh] border-2 flex justify-center items-center text-4xl">
-      loading please wait ...
+      ...لطفا صبر کنید در حال بارگذاری
     </div>
   );
 }

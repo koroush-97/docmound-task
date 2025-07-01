@@ -2,9 +2,9 @@
 // @components
 import { Input, Button } from "@/components";
 
-// @utilis and hooks
+// @utilis
 import { useForm } from "react-hook-form";
-
+import { toast } from "react-toastify";
 // @ usequery
 import { useQuery } from "@tanstack/react-query";
 // featch data
@@ -61,6 +61,7 @@ export default function Page() {
     }
 
     router.push("/dashboard");
+    toast.success("خوش آمدید!");
   };
 
   return (

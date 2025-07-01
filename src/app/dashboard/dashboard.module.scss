@@ -1,0 +1,42 @@
+.dashboardContainer {
+ width: 100%;
+ height: 100vh ;
+ 
+}
+
+
+.imgSidebar{
+    
+    padding: 5px;
+    height: 300px;
+}
+
+.parentList{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+   
+    padding: 10px;
+    height: 400px;
+    li {
+        padding: 5px;
+        direction: rtl;
+        text-align: right;
+        border: 2px solid black;
+        border-radius: 12px;
+        &:hover{
+            background-color: lightgray;
+           
+        }
+    }
+}
+
+.imgSidebar{
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+        border-radius: 10px;
+        border: 2px solid grey;
+    }
+}
